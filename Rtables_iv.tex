@@ -1,0 +1,77 @@
+
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{calc}
+\usepackage{setspace}
+\usepackage{multicol}
+ 
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{rotating}
+\usepackage{harvard}
+\usepackage{aer}
+\usepackage{aertt}
+\usepackage{verbatim}
+\usepackage{array}
+\usepackage{multirow}
+
+\setlength{\voffset}{-0.25in}
+\setlength{\topmargin}{0pt}
+\setlength{\hoffset}{0pt}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{.4in}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparpush}{0pt}
+\setlength{\footskip}{.1in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9.25in}
+\setlength{\parskip}{0pc}
+
+\pagestyle{empty}
+\begin{document}
+\begin{sidewaystable}\caption{Vector Autoregression with Autoregressive Heteroskedastic Errors - Learning with Instrumental Variables}\label{tb:variv}
+\begin{small}\begin{center}
+\begin{tabular}{l|p{0.64in} p{0.64in} p{0.64in}|p{0.64in} p{0.64in} p{0.64in}|p{0.64in} p{0.64in} p{0.64in}}\hline
+\multicolumn{10}{c}{VAR(1) and ARCH(1)} \\ \hline \hline
+Dependent Variable:  & \multicolumn{3}{c|}{Inflation ($\pi_t$)} & \multicolumn{3}{c|}{Unemployment ($u_t$)} &  \multicolumn{3}{c}{Output Growth ($g_t$)} \\ \hline
+Learning Gain: & $\gamma=0.01$ & $\gamma=0.02$ & $\gamma=0.05$ & $\gamma=0.01$ & $\gamma=0.02$ & $\gamma=0.05$& $\gamma=0.01$ & $\gamma=0.02$ & $\gamma=0.05$ \\ \hline
+VAR Coef on $m_{\gamma,t}$ & 0.147 & 0.158 & 0.210 & 0.007 & 0.034 & 0.063 & 0.079 & -0.132 & -0.359 \\
+(Standard Error) & (0.352) & (0.356) & (0.499) & (0.079) & (0.091) & (0.462) & (0.953) & (1.057) & (0.462) \\ \hline
+ARCH Coef on $m_{\gamma,t}^2$ & 0.102** & 0.118** & 0.119** & 0.004* & 0.007** & 0.008** & 0.932** & 1.346** & 1.603** \\
+(Standard Error) & (0.026) & (0.028) & (0.030) & (0.002) & (0.002) & (0.003) & (0.272) & (0.289) & (0.314) \\ \hline
+Adj R-squared & 0.786 & 0.786 & 0.788 & 0.975 & 0.975 & 0.976 & 0.186 & 0.186 & 0.191 \\ 
+F-test VAR$^{1,4}$ & 95.8 & 95.8 & 96.8 & 1005.5 & 1012.8 & 1031.4 & 6.9 & 6.9 & 7.1 \\ 
+AIC & 7.583 & 7.546 & 7.514   & & &   & & & \\ 
+BIC & 7.914 & 7.877 & 7.845   & & &   & & & \\ \hline \hline
+\multicolumn{10}{c}{VAR(2) and ARCH(1)} \\ \hline \hline
+Dependent Variable:  & \multicolumn{3}{c|}{Inflation ($\pi_t$)} & \multicolumn{3}{c|}{Unemployment ($u_t$)} &  \multicolumn{3}{c}{Output Growth ($g_t$)} \\ \hline
+Learning Gain: & $\gamma=0.01$ & $\gamma=0.02$ & $\gamma=0.05$ & $\gamma=0.01$ & $\gamma=0.02$ & $\gamma=0.05$& $\gamma=0.01$ & $\gamma=0.02$ & $\gamma=0.05$ \\ \hline
+VAR Coef on $m_{\gamma,t}$ & 0.121 & 0.146 & 0.231 & -0.059 & -0.042 & -0.012 & 0.573 & 0.414 & 0.148 \\
+(Standard Error) & (0.304) & (0.304) & (0.363) & (0.089) & (0.101) & (0.907) & (1.094) & (1.225) & (0.907) \\ \hline
+ARCH Coef on $m_{\gamma,t}^2$ & -0.012 & -0.011 & 0.007 & -0.002 & -0.003 & -0.002 & 0.122 & 0.129 & 0.264 \\
+(Standard Error) & (0.024) & (0.027) & (0.027) & (0.002) & (0.002) & (0.002) & (0.260) & (0.295) & (0.315) \\ \hline
+Adj R-squared & 0.817 & 0.817 & 0.820 & 0.981 & 0.980 & 0.980 & 0.235 & 0.228 & 0.222 \\ 
+F-test VAR$^{2,4}$ & 64.4 & 64.5 & 65.6 & 720.9 & 709.8 & 702.0 & 5.4 & 5.2 & 5.1 \\ 
+AIC & 7.204 & 7.216 & 7.231   & & &   & & & \\ 
+BIC & 7.869 & 7.881 & 7.896   & & &   & & & \\ \hline \hline
+\multicolumn{10}{c}{VAR(4) and ARCH(1)} \\ \hline \hline
+Dependent Variable:  & \multicolumn{3}{c|}{Inflation ($\pi_t$)} & \multicolumn{3}{c|}{Unemployment ($u_t$)} &  \multicolumn{3}{c}{Output Growth ($g_t$)} \\ \hline
+Learning Gain: & $\gamma=0.01$ & $\gamma=0.02$ & $\gamma=0.05$ & $\gamma=0.01$ & $\gamma=0.02$ & $\gamma=0.05$& $\gamma=0.01$ & $\gamma=0.02$ & $\gamma=0.05$ \\ \hline
+VAR Coef on $m_{\gamma,t}$ & 0.119 & 0.153 & 0.264 & -0.055 & -0.046 & -0.019 & 0.346 & 0.337 & 0.059 \\
+(Standard Error) & (0.361) & (0.384) & (0.430) & (0.098) & (0.114) & (0.869) & (1.177) & (1.319) & (0.869) \\ \hline
+ARCH Coef on $m_{\gamma,t}^2$ & 0.031* & 0.035* & 0.039** & 0.002 & 0.002* & 0.003** & 0.003 & 0.036 & 0.004 \\
+(Standard Error) & (0.017) & (0.019) & (0.018) & (0.001) & (0.001) & (0.001) & (0.195) & (0.207) & (0.210) \\ \hline
+Adj R-squared & 0.826 & 0.826 & 0.830 & 0.981 & 0.981 & 0.981 & 0.347 & 0.347 & 0.343 \\ 
+F-test VAR$^{3,4}$ & 36.1 & 36.2 & 37.1 & 385.5 & 382.0 & 377.7 & 4.9 & 4.9 & 4.9 \\ 
+AIC & 6.989 & 7.018 & 7.102   & & &   & & & \\ 
+BIC & 8.332 & 8.362 & 8.446   & & &   & & & \\ \hline \hline
+\multicolumn{10}{p{8.7in}}{$^1$ F-test has 5 and 124 degrees of freedom.~~$^2$ F-test has 9 and 119 degrees of freedom.~~$^3$ F-test has 17 and 109 degrees of freedom.\newline
+$^4$ All F-tests are significant at the 1\% level. \newline
+* Significant at the 10\% level.  ** Significant at the 5\% level.  *** Significant at the 1\% level.}\\
+\end{tabular}
+\end{center}
+\end{small}
+\end{sidewaystable}
+\end{document}

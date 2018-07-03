@@ -1,0 +1,108 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{calc}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage{fancyheadings}
+ 
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{rotating}
+\usepackage{harvard}
+\usepackage{aer}
+\usepackage{aertt}
+\usepackage{verbatim}
+\usepackage{array}
+\usepackage{multirow}
+
+\setlength{\voffset}{-0.25in}
+\setlength{\topmargin}{0pt}
+\setlength{\hoffset}{-0.2in}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{.4in}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparpush}{0pt}
+\setlength{\footskip}{.1in}
+\setlength{\textwidth}{6.9in}
+\setlength{\textheight}{9.25in}
+\setlength{\parskip}{0pc}
+\setlength{\parskip}{1pc}
+\setlength{\parindent}{0pc}
+
+\renewcommand{\baselinestretch}{0.9}
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\prbf}[1]{\textbf{#1}}
+\newcommand{\prit}[1]{\textit{#1}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bdm}{\begin{displaymath}}
+\newcommand{\edm}{\end{displaymath}}
+\newcommand{\script}[1]{\begin{cal}#1\end{cal}}
+\newcommand{\citee}[1]{\citename{#1} (\citeyear{#1})}
+\newcommand{\h}[1]{\hat{#1}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\normal}{\mathcal{N}}
+\newcommand{\app}
+{
+\appendix
+}
+
+%\newcommand{\appsection}[1]
+%{
+%\let\oldthesection\thesection
+%\renewcommand{\thesection}{Appendix \oldthesection}
+%\section{#1}\let\thesection\oldthesection
+%\renewcommand{\theequation}{\thesection\arabic{equation}}
+%\setcounter{equation}{0}
+%}
+
+\newcommand{\appsection}[1]
+{
+\section{#1}
+\renewcommand{\theequation}{\thesection\arabic{equation}}
+\setcounter{equation}{0}
+}
+\pagestyle{empty}
+
+\begin{document}
+
+Dear Professor Conley, 
+
+We are pleased to resubmit our paper, ``Dynamics of Monetary Policy Uncertainty and the Impact on the Macroeconomy,'' to Economics Bulletin.  Let me outline the changes we made in response to your comments and those of an anonymous referee.
+
+\be
+\item You you and the referee suggested, we changed the perceived Fed's response function to a Taylor rule that responds to \textit{expectations} of future output growth, inflation, and unemployment, rather than using a backward looking function.  We use Survey of Professional Forecasters median estimates for next quarter output, price level, and unemployment for these expectations.  The second paragraph in Section 2.2 defends the choice of the model, and describes this and other candidates for Taylor rules.  We are pleased to report that our results are rather robust to this change.  We still find a similar evolution of monetary policy uncertainty in the U.S. economy over the last several decades, and we still find statistical evidence that monetary policy uncertainty leads to greater macroeconomic volatility.
+
+\item Allowing for the Fed to be forward looking rather than backward looking brings up a potential endogeneity problem for the economic agents that estimate the model to understand the conduct of monetary policy.  To overcome this complication, we suppose agents may use a two-stage least squares (2SLS) instrumental variable regression, using lags of macro variables and lagged forecasts as instruments.  This is similar to the strategy that \citee{cgg2000} employ, whose purpose is to estimate a similar Taylor rule that includes endogenous expectations over the post-war period.  We derive a recursive constant gain least-squares learning procedure based on 2SLS, and use this model to construct agents' expectations and levels of uncertainty over the sample period.  Section 2.3 of the paper is a new section that focuses on the setup of the instrumental variables approach.  We are pleased to find that the all the results in the paper are robust to either the standard least squares learning framework and the instrumental variables learning framework (reported in Section 2.4 and Section 3).
+
+\item As the referee implied in his comment (d), I examine monetary policy uncertainty in vector autoregressions (VAR) with varying lag lengths.  Tables 1 and 2 report the findings for three VAR specifications, with 1 lag, 2 lags, and 4 lags, respectively.  As the referee was explicit about, I include model selection statistics BIC, AIC, and an Adjusted R-squared, to help inform which model is most appropriate.  Showing the results for every specification allows me to illustrate how robust the results are.  In no specification do I find that monetary policy uncertainty affects levels of output growth, inflation, or unemployment.  I do find evidence, though, that policy uncertainty affects macroeconomic volatility.  In the VAR(1) specifications, I find evidence that policy uncertainty leads to greater volatility in inflation, unemployment, and output growth.  In the VAR(4) specifications, I find evidence that policy uncertainty leads to greater volatility in only inflation and unemployment.  
+
+\item As you and the referee suggested, we commented on how uncertainty can lead to greater macroeconomic volatility, without necessarily affecting the average levels of macroeconomic outcomes.  This is in the last paragraph of Section 3.  Briefly, a greater degree of uncertainty leads to greater volatility in expectations.  Volatility in expectations can lead to volatility in decisions, such as in pricing, employment, and consumption demand.  In the ARCH results, we find statistically significant evidence that monetary policy uncertainty leads specifically to greater inflation and unemployment volatility.
+
+\item I expanded the ARCH model, equation (11), to a more general form.  In the original submission, the variances of the shocks could depend only on their own past lag.  I expanded the model to allow the variances of the shocks to depend on the past lag of \textit{all} the other shocks.  This is general enough to allow the volatility of output growth, inflation, and unemployment to affect each other.  As before, the ARCH models are augmented with the measure of monetary policy uncertainty.  I am pleased to report the result that policy uncertainty leads to greater macroeconomic volatility is robust to this more general framework.
+
+\item Regarding the additional comments made by the referee:
+  \be
+  \item I fixed the error in equation 1, putting $r_{t-1}$ on the right-hand side of the equation.  I maintained the notation for the coefficients that they are not time varying, as this is the standard in all the learning literature.  See, for example, \citee{evanshonka2008}.  While it is true that agents re-estimate their regression models each period (every time with an additional observation), and therefore obtain new estimates of the coefficients each period; agents are still estimating a standard fixed-coefficient regression model.
+  \item I fixed the error in notation for the learning gain on page 3.  The learning gain is denoted with $\gamma_t$.
+  \item I put in two sentences to describe the meaning of $R_t$ in equation (3).
+  \item As I discuss above, I do estimate the vector autoregression model under three different lags, and report AIC and BIC statistics to inform model selection.
+  \ee
+
+\bibliographystyle{econometrica}
+\bibliography{mpu}
+
+\ee
+
+
+\end{document}
+
+

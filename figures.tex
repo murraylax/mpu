@@ -1,0 +1,96 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{calc}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage{fancyheadings}
+ 
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{rotating}
+\usepackage{harvard}
+\usepackage{aer}
+\usepackage{aertt}
+\usepackage{verbatim}
+\usepackage{array}
+\usepackage{multirow}
+
+\setlength{\voffset}{-0.25in}
+\setlength{\topmargin}{0pt}
+\setlength{\hoffset}{0pt}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{.4in}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparpush}{0pt}
+\setlength{\footskip}{.1in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9.25in}
+\setlength{\parskip}{0pc}
+
+\renewcommand{\baselinestretch}{1.7}
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\prbf}[1]{\textbf{#1}}
+\newcommand{\prit}[1]{\textit{#1}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bdm}{\begin{displaymath}}
+\newcommand{\edm}{\end{displaymath}}
+\newcommand{\script}[1]{\begin{cal}#1\end{cal}}
+\newcommand{\citee}[1]{\citename{#1} (\citeyear{#1})}
+\newcommand{\h}[1]{\hat{#1}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\normal}{\mathcal{N}}
+\newcommand{\app}
+{
+\appendix
+}
+
+%\newcommand{\appsection}[1]
+%{
+%\let\oldthesection\thesection
+%\renewcommand{\thesection}{Appendix \oldthesection}
+%\section{#1}\let\thesection\oldthesection
+%\renewcommand{\theequation}{\thesection\arabic{equation}}
+%\setcounter{equation}{0}
+%}
+
+\newcommand{\appsection}[1]
+{
+\section{#1}
+\renewcommand{\theequation}{\thesection\arabic{equation}}
+\setcounter{equation}{0}
+}
+
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{figure}\caption{Expectations With OLS Learning: Uncertainty and Preceived Coefficients}\label{fg:coefs_ols}\vspace*{1pc}
+\hspace*{-0.6in}\begin{tabular}{cc}
+\includegraphics[scale=0.4]{mpu_ols.png} & \includegraphics[scale=0.4]{coef_constant_ols.png} \\ [1pc]
+\includegraphics[scale=0.4]{coef_persistence_ols.png} & \includegraphics[scale=0.4]{coef_inflation_ols.png} \\
+\includegraphics[scale=0.4]{coef_growth_ols.png} & \includegraphics[scale=0.4]{coef_unemployment_ols.png} \\
+\end{tabular}
+\end{figure}
+
+\begin{figure}\caption{Expectations With IV Learning: Uncertainty and Preceived Coefficients}\label{fg:coefs_iv}\vspace*{1pc}
+\hspace*{-0.6in}\begin{tabular}{cc}
+\includegraphics[scale=0.4]{mpu_iv.png} & \includegraphics[scale=0.4]{coef_constant_iv.png} \\ [1pc]
+\includegraphics[scale=0.4]{coef_persistence_iv.png} & \includegraphics[scale=0.4]{coef_inflation_iv.png} \\
+\includegraphics[scale=0.4]{coef_growth_iv.png} & \includegraphics[scale=0.4]{coef_unemployment_iv.png} \\
+\end{tabular}
+\end{figure}
+
+
+\end{document}
+
+

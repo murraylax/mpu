@@ -1,0 +1,432 @@
+\documentclass{beamer}
+\usepackage{beamerthemeshadow}
+\usepackage{verbatim}
+
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{pgf}
+\usepackage{colortbl}
+\usepackage{hyperref}
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\prbf}[1]{\textbf{#1}}
+\newcommand{\prit}[1]{\textit{#1}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bdm}{\begin{displaymath}}
+\newcommand{\edm}{\end{displaymath}}
+
+\newcommand{\ft}[1]{
+  \frametitle{\begin{tabular}{p{4.2in}r} \textcolor{white}{#1} & \small{\insertframenumber / \inserttotalframenumber} \end{tabular}}
+  \setbeamercovered{transparent=18}
+}
+
+\newcommand{\eft}[1]{
+  \frametitle{\begin{tabular}{p{4in}r} \textcolor{white}{#1} & \small{\hyperlink{f:questions}{\beamergotobutton{GO BACK}}} \end{tabular}}
+  \setbeamercovered{transparent=18}
+}
+
+\newcommand{\stepinv}{\setbeamercovered{invisible}}
+\newcommand{\stopinv}{\setbeamercovered{transparent=18}}
+\newcommand{\uncoverinv}[1]
+{
+  \setbeamercovered{invisible}
+  \uncover<+->{#1}
+  \setbeamercovered{transparent=18}
+}
+\newcommand{\ans}[1]{\textcolor{blue}{#1}}
+\newcommand{\ansinv}[1]
+{
+  \setbeamercovered{invisible}
+  \uncover<+->{\textcolor{blue}{#1}}
+  \setbeamercovered{transparent=18}
+}
+\newcommand{\setinv}{\setbeamercovered{invisible}}
+\newcommand{\setvis}{\setbeamercovered{transparent=18}}
+\newcommand{\centerpic}[2]
+{
+  \begin{center}
+  \includegraphics[#1]{#2}
+  \end{center}
+}
+\newcommand{\h}[1]{\hat{#1}}
+\newcommand{\ds}{\displaystyle}
+
+%\definecolor{light}{rgb}{1.0,0.33,0.33}
+\definecolor{light}{rgb}{1.0,0.5,0.5}
+\newcommand{\hl}[1]{\alt<#1>{\rowcolor{light}\hspace*{-2.1pt}} {\hspace*{-2.1pt}} }
+
+\definecolor{mycolor}{rgb}{0.6,0.0,0.0}
+\usecolortheme[named=mycolor]{structure}
+
+\title[Monetary Policy Uncertainty and the Macroeconomy]{Dynamics of Monetary Policy Uncertainty and the Macroeconomy}
+\author[James Murray, Department of Economics]{Nicholas Herro\inst{1} \and James Murray\inst{2}}
+\institute{
+\inst{1}Economics Major, Class of 2011\\
+ University of Wisconsin - La Crosse\\
+\vspace*{1pc}
+\inst{2}Department of Economics\\
+University of Wisconsin - La Crosse
+}
+\date{May 2, 2012}
+
+\begin{document}
+
+\frame{\titlepage \setcounter{framenumber}{0}}
+
+\section{}
+\frame
+{
+\begin{center}
+\parbox{4in}{\textit{``Improving the public's understanding of the central bank's objectives and policy strategies reduces economic and financial uncertainty and thereby allows business and households to make more informed decisions.''}\newline\newline
+$\sim$ Ben S. Bernanke, Chairman of the Federal Reserve\newline
+Speech to the Cato Institute 25th Annual Monetary Conference, November 17, 2007.}
+\end{center}
+}
+
+
+\frame
+{
+\begin{center}
+\parbox{4in}{\textit{``The more fully the public understands what the function of the Federal reserve system is and on what grounds and on what indications its policies and actions are based, the simpler and easier will be the problems of credit administration in the United States.''}\newline\newline
+$\sim$ Federal Reserve Board, Annual Report, 1923, p. 38.}
+\end{center}
+}
+
+\frame
+{
+  \ft{Purpose}
+ \begin{block}{Federal Reserve lacks transparency}
+    \bi
+    \item Evidence suggests transparency leads to greater stability and better macroeconomic outcomes.
+    \item Dual mandate - what is the relative importance of price stability versus maximum employment?
+    \item Magnitude of interest rate responses?
+    \ei
+  \end{block}
+  \begin{block}{Purpose}
+  Measure monetary policy uncertainty (MPU); measure effect on:
+    \be
+    \item The \textit{level} of output, employment, and inflation.
+    \item The \textit{volatility} output, employment, and inflation.
+    \ee
+  \end{block}
+}
+
+
+\section{Monetary Policy}
+\subsection{Overview}
+\frame
+{
+  \ft{Monetary Policy Overview}
+  \bi
+  \item The Federal Reserve influences interest rates:
+    \be
+    \item An increase in money supply causes an increase in supply of loanable funds
+    \item An increase in supply of loanable funds causes interest rates on loans to fall.
+    \ee
+  \item Interest rates influence economic activity.
+  \item Monetary Policy: using interest rates to achieve macroeconomic goals.
+  \ei
+}
+
+\subsection{Addressing Unemployment / Economic Growth}
+\frame
+{
+  \ft{Addressing Unemployment / Output Growth}
+  \uncover{\textbf{Problem:} Suppose unemployment is high\\}
+  \uncover{(or growth in production is low):}
+  \be
+  \item The Fed increases the supply of money.
+  \item Interest rates fall.
+  \item Lower interest rates encourage more borrowing and less saving, and therefore more spending.
+  \item The increase in economic activity causes an increase in production and employment. 
+  \item \textbf{Yay!}
+  \ee
+}
+
+\subsection{Addressing Inflation}
+\frame
+{
+  \ft{Addressing Inflation}
+  \uncover{\textbf{Problem:} Suppose inflation is high:}
+  \be
+  \item  The Fed decreases the supply of money.
+  \item  Interest rates rise.
+  \item  Higher interest rates encourages saving, discourages borrowing, leads to decreases in spending.
+  \item  Lower demand for goods and services leads to downward pressure on prices.
+  \item  \textbf{Yay!}
+  \ee
+}
+
+\subsection{Taylor Rule}
+\frame
+{
+  \ft{Taylor Rule}
+  \bi
+  \item When unemployment goes up $\rightarrow$ lower interest rates.
+  \item When output growth goes down $\rightarrow$ lower interest rates.
+  \item When inflation goes up $\rightarrow$ raise interest rates.
+  \item Interest rates are persistent.
+  \ei
+}
+
+\frame
+{
+  \ft{Taylor Rule}
+  Taylor (1993) suggested U.S. Monetary Policy follows a rule similar to...
+\vspace*{1pc}
+
+  \bdm r_t = \alpha_0 + \alpha_r r_{t-1} + \alpha_{\pi} \pi_{t-1} + \alpha_g g_{t-1} + \alpha_u u_{t-1} + \epsilon_t \edm
+\vspace*{1pc}
+
+  \begin{scriptsize}
+  \begin{tabular}{|p{2in}|p{2in}|} \hline
+  \textbf{Variables:} & \textbf{Coefficients:} \\ \hline
+  Subscript $t$ denotes time period. &    $\alpha_{\pi}$: response of interest rate to inflation.\\
+   $r_t$: Federal Funds rate &    $\alpha_{\pi}$: response of interest rate to inflation.\\
+   $\pi_{t}$: inflation rate &    $\alpha_{g}$: response of interest rate to growth.\\
+   $g_{t}$: growth rate &    $\alpha_u$: response to unemployment.\\
+   $u_{t}$: unemployment rate. & $\alpha_0$: related to average interest rate. \\
+   $\epsilon_t$ allows for unexplained variation. & \\ \hline
+  \end{tabular}
+  \end{scriptsize}
+}
+
+\section{Monetary Policy Uncertainty}
+\subsection{Uncertainty}
+\frame
+{
+  \ft{Monetary Policy Uncertainty}
+  \bi
+  \item How well do we understand the conduct of monetary policy?
+  \item \textit{How much} does the interest rate change in response to the variables mentioned?
+  \item What are the values for the coefficients?
+  \ei
+}
+
+\frame
+{
+  \ft{Who Cares?}
+  \bi
+  \item Economic uncertainty can lead to precautionary saving:
+    \bi
+    \item An increase in saving leads to a decrease in spending, production, and employment.
+    \ei
+  \item Economic uncertainty can lead to less economic stability:
+    \bi
+    \item Changes in economic policy or economic conditions can trigger larger, self-fulfilling expectations.
+    \ei
+  \item Federal Reserve has a non-specific, dual mandate, ``Promote stability in employment and prices.''
+  \ei
+}
+
+\subsection{Literature}
+\frame
+{
+  \ft{Empirical Evidence for Transparency and Credibility}
+  \bi
+  \item Cecchetti and Krause (2002)
+    \bi
+    \item 60 countries
+    \item Transparency and credibility leads to greater macroeconomic stability.
+    \ei
+  \item Cecchetti, Flores-Langunes, and Krause (2006)
+    \bi
+    \item 20 countries
+    \item Better monetary policy explains 80\% reduction in macroeconomic volatility since early 1980s.
+    \ei
+  \item Cecchetti and Ehrmann (2002) - world\newline Bernanke and Mishkin (1997) - United States
+    \bi
+    \item Policy focus on inflation stability leads to greater inflation and output stability.
+    \ei
+  \ei
+}
+
+\frame
+{
+  \ft{Empirical Evidence for Inflation Uncertainty}
+  \bi
+  \item Grier and Perry (2000); Fountas (2001); Fountas, Karanasos, and Kim (2002, 2006), Grier et al. (2004), Fountas and Karanasos (2007)
+  \item Find inflation uncertainty (as evidenced of from changing volatility) decreases output growth.
+  \item Do not focus specifically on uncertainty caused by \textit{monetary policy}.
+  \item Do not separate uncertainty from volatility.
+  \ei
+}
+
+\frame
+{
+  \ft{Uncertainty in U.S. Monetary Policy}
+  \bi
+  \item Taylor (1993) rule reasonably approximates theory and practice of monetary policy behavior.
+  \item Taylor rule coefficients change.
+    \bi
+    \item Taylor (1999), Clarida, Gali, and Gerler (2000), Orphanides (2003)
+    \ei
+  \item Interest rate smoothing, stronger response to output growth, lower trend inflation.
+    \bi
+    \item Coibion and Gorodnichenko (2009)
+    \ei
+  \ei
+}
+
+\subsection{Coefficients}
+\frame
+{
+  \ft{What are the Taylor Rule Coefficients?}
+  \bi
+  \item Taylor (1993) suggested the equation is,
+  \uncover<.->{ \bdm r_t = 1 + 1.5 \pi_{t-1} + 0.5 (GDP_{t-1} - GDP^*) \edm }
+
+  \item How about estimate the equation using a linear regression?
+  \ei
+  \uncover<.->{\bdm r_t = \alpha_0 + \alpha_r r_{t-1} + \alpha_{\pi} \pi_{t-1} + \alpha_g g_{t-1} + \alpha_u u_{t-1} + \epsilon_t \edm}
+  \uncover{
+    \begin{footnotesize}
+    \begin{tabular}{|l|lllll|}
+      \multicolumn{6}{c}{\textbf{OLS Regression (1955:Q2 - 2010:Q2)}} \\ \hline
+      & Constant & Prev. Rate & Growth & Inflation & Unemployment \\ \hline
+      Coefficient &    0.166  &   0.902 &   0.386 &   0.400 &   -0.053 \\ 
+      (Std Error) & (0.321) &    (0.029) &   (0.081) &   (0.117) &   (0.051) \\ \hline
+    \end{tabular}
+    \end{footnotesize}
+  }
+  \bi
+  \item Well that's settled. 
+  \ei
+}
+
+\frame
+{
+  \ft{Seriously.. Uncertainty!}
+  \uncover{Least-Squares Learning:
+  \bdm r_t = \alpha_0 + \alpha_r r_{t-1} + \alpha_{\pi} \pi_{t-1} + \alpha_g g_{t-1} + \alpha_u u_{t-1} + \epsilon_t \edm }
+  \vspace*{-1pc}
+    \bi
+    \item Supposes every quarter market participants re-estimate the Taylor rule regression with available data.
+    \item Weighted regression: most recent observations are given more weight.
+    \ei
+  
+  \uncover{ Measure of Monetary Policy Uncertainty (MPU):}
+    \bi
+    \item Estimated residuals (errors) from the regression is unexplained monetary policy.
+    \item $MPU_t = $ (Weighted) average of squared-residuals.
+    \ei
+}
+
+\subsection{Measure of Monetary Policy Uncertainty}
+\frame
+{
+  \ft{Monetary Policy Uncertainty}
+  \centerpic{scale=0.4}{uncertainty.png}
+}
+
+\frame
+{
+  \ft{Evolving Estimates of Monetary Policy}
+  \begin{center}
+    \begin{tabular}{cc}
+      \includegraphics[scale=0.25]{coef_fedfunds.png} & \includegraphics[scale=0.25]{coef_inflation.png} \\ [0.4pc]
+      \includegraphics[scale=0.25]{coef_growth.png} & \includegraphics[scale=0.25]{coef_unemployment.png} \\
+    \end{tabular}
+  \end{center}
+}
+
+
+\section{Impact on the Macroeconomy}
+\subsection{Impact on Levels of Unemployment, Growth, and Inflation}
+\frame
+{
+  \ft{Impact on the Macroeconomy}
+  \begin{block}{Impact of MPU on Levels}
+    \be
+    \item Unemployment,
+    \item Production growth,
+    \item inflation.
+    \ee
+  \end{block}
+  \begin{block}{Estimate a Vector Autoregression (VAR):}
+    \bi
+    \item Statistical model that determines factors that influence...
+    \item unemployment, production growth, inflation,...
+    \item while accounting for co-dependence of these variables...
+    \item \textit{and add the MPU variable.}
+    \ei
+  \end{block}
+}
+
+\frame
+{
+  \ft{Vector Autoregression Results}
+ \begin{scriptsize}
+    \hspace*{-0.2in}
+    \begin{tabular}{l|ll|ll|ll}
+      Dependent Variable: & \multicolumn{2}{c|}{Inflation ($\pi_t$)}  &  \multicolumn{2}{c|}{Unemployment ($u_t$)}  &   \multicolumn{2}{c}{Output Growth ($g_t$)} \\ \hline
+      Constant &  0.338 & (0.239)    &  0.312*** & (0.103) &  0.296 & (0.259)       \\
+      $r_{t-1}$ &  0.064** & (0.026)    &  0.000 & (0.011)    &  -0.032 & (0.026)       \\
+      $g_{t-1}$ &  0.435*** & (0.117)    &  0.013 & (0.050)    &  -0.044 & (0.119)     \\
+      $\pi_{t-1}$ &  0.040 & (0.082)    &  -0.211*** & (0.033)   &  0.313*** & (0.085)     \\
+      $u_{t-1}$ &  -0.024 & (0.025)    &  0.967*** & (0.013)   &  0.085** & (0.033)    \\
+      \rowcolor{pink} $MPU_{t}$ &  -0.017 & (0.088)    &  0.070 & (0.046)    &  -0.072 & (0.112)      \\ \hline
+      $R^2$ & \multicolumn{2}{l|}{0.367} & \multicolumn{2}{l|}{0.971} & \multicolumn{2}{l}{0.175}  \\ \hline
+      \multicolumn{7}{p{4in}}{Heteroskedastic robust standard errors in parentheses.\newline
+        * Significant at the 10\% level.  ** Significant at the 5\% level. \newline *** Significant at the 1\% level.}\\ 
+    \end{tabular}
+  \end{scriptsize}
+
+  Failure to find statistical significance on $MPU$ implies a failure to find evidence that monetary policy uncertainty affects these variables.
+}
+
+\subsection{Impact on Economic Volatility}
+\frame
+{
+  \ft{Impact on Economic Volatility}
+  \bi
+  \item Uncertainty may still impact volatility (mean-preserving).
+  \item Movements in monetary policy are unpredictable, cause excessive changes in business and consumer decisions.
+  \item Allow for autoregressive conditional heteroskedasticity (ARCH) and...
+  \item \textit{let MPU influence volatility}.
+  \ei
+}
+
+
+\frame
+{
+  \ft{Autoregressive Conditional Heteroskedasticity}
+
+\begin{scriptsize}
+  \begin{tabular}{l|ll|ll|ll}
+ & \multicolumn{2}{c|}{Inflation Volatility } & \multicolumn{2}{c|}{Unemployment Volatility } &  \multicolumn{2}{c}{Output Growth Volatility } \\ \hline
+Constant & 0.321*** & (0.109) & 0.057*** & (0.013) & 0.487*** & (0.101) \\
+$\eta_{t-1}^2$ & 0.207*** & (0.073) & 0.086 &  (0.074) & 0.112 &  (0.075)  \\
+\rowcolor{pink} $MPU_{t}^2$ & 0.022 & (0.015) & 0.006*** & (0.002) & 0.033** & (0.014)  \\ \hline
+$R^2$ & \multicolumn{2}{l|}{0.058} & \multicolumn{2}{l|}{0.083} & \multicolumn{2}{l}{0.053} \\ \hline
+\multicolumn{7}{p{4in}}{$^1$ Standard errors in parentheses.\newline
+* Significant at the 10\% level.  ** Significant at the 5\% level.\newline *** Significant at the 1\% level.}\\ 
+\end{tabular}
+\end{scriptsize}
+
+\bi
+\item Monetary policy uncertainty leads to less stability in unemployment and output growth.
+\item Fail to find evidence monetary policy uncertainty affects inflation volatility.
+\ei 
+
+}
+
+\subsection{Conclusions}
+\frame
+{
+  \ft{Conclusions for the Macroeconomy}
+  \bi
+  \item We do not find evidence that MPU affects the \textit{average level} of unemployment, inflation, or output growth.
+  \item We do find evidence that MPU adversely affects the stability of unemployment and output growth.
+  \item Especially important as the Fed is conducted with unprecedented problems, and left with nontraditional policies.
+  \ei
+}
+
+\end{document}
+
